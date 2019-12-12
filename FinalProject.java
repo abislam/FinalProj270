@@ -37,6 +37,53 @@ public class FinalProject{
 
 	public void mainMenu(){
 		//display menu and ask for user selection (Validate)
+
+		boolean looper = true;
+
+		String userName;
+		String userPassword;
+		String adminName = "admin";
+		String adminPassword = "admin123";
+
+		while(looper){
+			int choice = 0;
+			System.out.println("1. Admin");
+			System.out.println("2. User");
+			System.out.println("3. Exit");
+			System.out.println("Please enter your choice: ");
+			choice = input.nextInt();
+
+			while(choice != 1 && choice != 2 && choice != 3){
+				System.out.println("Invalid input. Please enter 1,2 or 3: ");
+				choice = input.nextInt();
+			}
+
+			switch(choice){
+				case 1:
+					input.nextLine();
+					System.out.println("Enter Admin User Name: ");
+					userName = input.nextLine();
+					System.out.println("Enter Admin Password: ");
+					userPassword = input.nextLine();
+
+					if(userName == adminName && userPassword == adminPassword){
+						adminMenu();
+					}else{
+						System.out.println("Username or Password incorrect.");
+					}
+
+					break;
+
+				case 2:
+					userMenu();
+					break;
+
+				case 3:
+					looper = false;
+
+			}
+		}
+
 	}
 
 	public void adminMenu(){
