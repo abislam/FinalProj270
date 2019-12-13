@@ -126,6 +126,27 @@ public class FinalProject{
 
 	public void userMenu(){
 		//display menu and ask for user selection (Validate)
+		System.out.println("User Menu \n");
+		System.out.println("\t1) Search item");
+		System.out.println("\t2) Place order(or purchase item)");
+
+		int choice = input.nextInt()
+
+		while(choice != 1 && choice != 2){
+			System.out.println("Invalid input. Please enter 1,2 or 3: ");
+			choice = input.nextInt();
+		}
+
+		int itemID = 0;
+
+		switch(choice){
+			case 1: 
+				
+			case 2: 
+				System.out.println("Enter Item ID to purchase item");
+				itemID = input.nextInt();
+				purchaseItem(itemID);
+		}
 	}
 
 	private void displayAllItems(){
