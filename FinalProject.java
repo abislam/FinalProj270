@@ -106,6 +106,7 @@ public class FinalProject{
 		switch(choice){
 			case 1:
 				addItem();
+				System.out.println("Item added");
 				break;
 
 			case 2:
@@ -160,13 +161,6 @@ class Item {
 	private double price;
 	private int quantity;
 
-	//add constructors
-	public Item(String id, String name, double price, int quantity){
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.quantity = quantity;
-	}
 
 	//add get and set methods
 	//getters
@@ -202,5 +196,15 @@ class Item {
 	public void setQuantity(int quantity){
 		this.quantity = quantity;
 	}
+
+
+	//add constructors
+	public Item(String id, String name, double price, int quantity){
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+
 
 }
