@@ -47,10 +47,10 @@ public class FinalProject{
 
 		while(looper){
 			int choice = 0;
-			System.out.println("1. Admin");
-			System.out.println("2. User");
-			System.out.println("3. Exit");
-			System.out.println("Please enter your choice: ");
+			System.out.println("Main Menu \n");
+			System.out.println("\t1) Admin");
+			System.out.println("\t2) User");
+			System.out.println("\t3) Exit");
 			choice = input.nextInt();
 
 			while(choice != 1 && choice != 2 && choice != 3){
@@ -88,6 +88,40 @@ public class FinalProject{
 
 	public void adminMenu(){
 		////display menu and ask for user selection (Validate)
+
+		System.out.println("Admin Menu \n");
+		System.out.println("\t1) Add new Item");
+		System.out.println("\t2) Search and update item");
+		System.out.println("\t3) Search and delete item");
+
+		int choice = input.nextInt()
+
+		while(choice != 1 && choice != 2 && choice != 3){
+			System.out.println("Invalid input. Please enter 1,2 or 3: ");
+			choice = input.nextInt();
+		}
+
+		itemID = 0;
+
+		switch(choice){
+			case 1:
+				addItem();
+				break;
+
+			case 2:
+				System.out.println("Enter the Item ID: ");
+				itemID = input.nextInt();
+				updateItem(itemID);
+				System.out.println("Item with Item ID (" + itemID + ") updated");
+				break;
+
+			case 3:
+				System.out.println("Enter the Item ID: ");
+				itemID = input.nextInt();
+				deleteItem(itemID);
+				System.out.println("Item with Item ID (" + itemID + ") deleted");
+				break;
+		}
 	}
 
 	public void userMenu(){
