@@ -30,6 +30,7 @@ public class FinalProject{
 
 	private Scanner input = new Scanner(System.in);
 	private Item[] items = new Item[100];
+	private int counter = 0;
 
 	public static void main(String[] args){
 		FinalProject fp = new FinalProject();
@@ -154,7 +155,21 @@ public class FinalProject{
 	}
 
 	public int searchForItem(){
+		if(counter==0){
+			System.out.println("Inventory is Empty");
+		}else{
+			input.nextLine();
+		}
+		System.out.println("Enter your Product ID");
+		String productID = input.nextLine();
+		int itemCounter = -1;
+		for(int i = 0; i < counter; i++){
+			if(id.equalsIgnoreCase(items[i].getID()) || id.equalsIgnoreCase(items[i].getName())){
+				itemCounter = i;
+			}
+		}
 
+		return index;
 	}
 
 	private void deleteItem(int index){
