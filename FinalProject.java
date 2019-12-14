@@ -173,6 +173,22 @@ public class FinalProject{
 	}
 
 	private void deleteItem(int index){
+		if(counter==0){
+			System.out.println("Inventory is Empty");
+		}else{
+			Item[] temp = items;
+		}
+
+		if(itemCounter >= counter){
+			System.out.println("Item not found in inventory");
+		}else{
+			for(int i = itemCounter + 1; i < temp.length; i++){
+				temp[i-1] = temp[i];
+			}
+			counter = counter - 1;
+		}
+
+		items = temp;
 
 	}
 
