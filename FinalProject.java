@@ -141,11 +141,21 @@ public class FinalProject{
 
 		switch(choice){
 			case 1: 
-				
+				int itemSearch = searchForItem();
+
+				if(itemSearch == -1){
+					System.out.println("No Item found");
+				}else{
+					System.out.println("Your Item: " + items[itemSearch]);
+				}
+
 			case 2: 
 				System.out.println("Enter Item ID to purchase item");
 				itemID = input.nextInt();
 				purchaseItem(itemID);
+
+			default:
+				break;
 		}
 	}
 
