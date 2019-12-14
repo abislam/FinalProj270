@@ -256,6 +256,30 @@ public class FinalProject{
 	}
 
 	private void purchaseItem(int itemCounter){
+		int purchaseQuantity;
+		int itemQuantity;
+		int cost = 0;
+		if(itemCounter >= counter){
+			System.out.println("Item not found in inventory");
+		}else{
+			System.out.println("Specify quantity for purchase of " + items[itemCounter].getName() " :");
+			purchaseQuantity = input.nextInt();
+
+			while(purchaseQuantity <= 0){
+				System.out.println("Please specify a quantity greater than 0");
+				purchaseQuantity = input.nextInt();
+			}
+
+			itemQuantity = items[itemCounter].getQuantity();
+
+			if(itemQuantity > purchaseQuantity && itemQuantity != 0){
+				items[itemCounter].setQuantity(itemQuantity - purchaseQuantity);
+				cost = purchaseQuantity * items[itemCounter].getPrice();
+				System.out.println("Your total cost for this transaction: " + cost);
+			}else{
+				System.out.println("Item not available");
+			}
+		}
 
 	}
 }
