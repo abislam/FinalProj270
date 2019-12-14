@@ -169,7 +169,7 @@ public class FinalProject{
 			}
 		}
 
-		return index;
+		return itemCounter;
 	}
 
 	private void deleteItem(int index){
