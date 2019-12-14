@@ -138,10 +138,16 @@ public class FinalProject{
 			choice = input.nextInt();
 		}
 
-		int itemID = 0;
+		int itemID = -1;
 
 		switch(choice){
 			case 1: 
+				int itemCounter = searchForItem();
+				if(itemCounter == -1){
+					System.out.println("Item not found in inventory");
+				}else{
+					System.out.println("Your item: " + items[itemCounter].getName());
+				}
 				
 			case 2: 
 				System.out.println("Enter Item ID to purchase item");
