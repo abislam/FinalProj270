@@ -34,6 +34,7 @@ public class FinalProject{
 
 	public static void main(String[] args){
 		FinalProject fp = new FinalProject();
+		fp.mainMenu();
 	}
 
 	public void mainMenu(){
