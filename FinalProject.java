@@ -148,7 +148,7 @@ public class FinalProject{
 				}else{
 					System.out.println("Your item: " + items[itemCounter].getName());
 				}
-				
+
 			case 2: 
 				System.out.println("Enter Item ID to purchase item");
 				itemID = input.nextInt();
@@ -157,7 +157,13 @@ public class FinalProject{
 	}
 
 	private void displayAllItems(){
-
+		if(counter == 0){
+			System.out.println("Inventory is Empty");
+		}else{
+			for(int i = 0; i < counter; i++){
+				System.out.println(items[i].getName());
+			}
+		}
 	}
 
 	public int searchForItem(){
