@@ -172,7 +172,7 @@ public class FinalProject{
 		return itemCounter;
 	}
 
-	private void deleteItem(int index){
+	private void deleteItem(int itemCounter){
 		if(counter==0){
 			System.out.println("Inventory is Empty");
 		}else{
@@ -192,7 +192,7 @@ public class FinalProject{
 
 	}
 
-	private void updateItem(int index){
+	private void updateItem(int itemCounter){
 
 	}
 
@@ -200,7 +200,7 @@ public class FinalProject{
 
 	}
 
-	private void purchaseItem(int index){
+	private void purchaseItem(int itemCounter){
 
 	}
 }
