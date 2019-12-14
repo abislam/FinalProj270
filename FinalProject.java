@@ -228,6 +228,30 @@ public class FinalProject{
 	}
 
 	private void addItem(){
+		String newID;
+		String newName;
+		double newPrice;
+		int newQuantity;
+
+		input.nextLine();
+
+		System.out.println("Product ID: ");
+		newID = input.nextLine();
+
+		System.out.println("Product Name: ");
+		newName = input.nextLine();
+
+		System.out.println("Product Price: ");
+		newPrice = input.nextDouble();
+
+		System.out.println("Product Quantity: ");
+		newQuantity = input.nextInt();
+
+		items[counter] = new Item(newID, newName, newPrice, newQuantity);
+
+		counter++
+
+		System.out.println("Item added");
 
 	}
 
