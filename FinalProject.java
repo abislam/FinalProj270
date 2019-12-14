@@ -193,6 +193,37 @@ public class FinalProject{
 	}
 
 	private void updateItem(int itemCounter){
+		String updatedID;
+		String updatedName;
+		double updatedPrice;
+		int updatedQuantity;
+
+		if(counter==0){
+			System.out.println("Inventory is Empty");
+		}else if(itemCounter > counter){
+			System.out.println("Item not found in inventory");
+		}else{
+			input.nextLine();
+
+			System.out.println("New Product ID: ");
+			updatedID = input.nextLine();
+
+			System.out.println("New Product Name: ");
+			updatedName = input.nextLine();
+
+			System.out.println("New Product Price: ");
+			updatedPrice = input.nextDouble();
+
+			System.out.println("New Product Quantity: ");
+			updatedQuantity = input.nextInt();
+
+			items[index].setID(updatedID);
+			items[index].setName(updatedName);
+			items[index].setPrice(updatedPrice);
+			items[index].setQuantity(updatedQuantity);
+
+			System.out.println("Item updated");
+		}
 
 	}
 
