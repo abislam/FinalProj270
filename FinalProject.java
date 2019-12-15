@@ -62,18 +62,8 @@ public class FinalProject{
 
 			switch(choice){
 				case 1:
-					input.nextLine();
-					System.out.println("Enter Admin User Name: ");
-					userName = input.nextLine();
-					System.out.println("Enter Admin Password: ");
-					userPassword = input.nextLine();
 
-					if(userName == adminName && userPassword == adminPassword){
-						adminMenu();
-					}else{
-						System.out.println("Username or Password incorrect.");
-					}
-
+					adminMenu();
 					break;
 
 				case 2:
@@ -139,7 +129,7 @@ public class FinalProject{
 			choice = input.nextInt();
 		}
 
-		int itemID = -1;
+		//int itemID = -1;
 
 		switch(choice){
 			case 1: 
@@ -149,11 +139,12 @@ public class FinalProject{
 				}else{
 					System.out.println("Your item: " + items[itemCounter].getName());
 				}
-
+				break;
 			case 2: 
 				System.out.println("Enter Item ID to purchase item");
-				itemID = input.nextInt();
-				purchaseItem(itemID);
+				itemCounter = input.nextInt();
+				purchaseItem(itemCounter);
+				break;
 		}
 	}
 
@@ -168,16 +159,18 @@ public class FinalProject{
 	}
 
 	public int searchForItem(){
+		int productID;
+
 		if(counter==0){
 			System.out.println("Inventory is Empty");
 		}else{
 			input.nextLine();
 		}
 		System.out.println("Enter your Product ID");
-		String productID = input.nextLine();
+		productID = input.nextInt();
 		int itemCounter = -1;
 		for(int i = 0; i < counter; i++){
-			if(productID.equalsIgnoreCase(items[i].getID()) || productID.equalsIgnoreCase(items[i].getName())){
+			if(productID == items[i].getID()){
 				itemCounter = i;
 			}
 		}
@@ -206,7 +199,7 @@ public class FinalProject{
 	}
 
 	private void updateItem(int itemCounter){
-		String updatedID;
+		int updatedID;
 		String updatedName;
 		double updatedPrice;
 		int updatedQuantity;
@@ -219,7 +212,7 @@ public class FinalProject{
 			input.nextLine();
 
 			System.out.println("New Product ID: ");
-			updatedID = input.nextLine();
+			updatedID = input.nextInt();
 
 			System.out.println("New Product Name: ");
 			updatedName = input.nextLine();
@@ -241,24 +234,28 @@ public class FinalProject{
 	}
 
 	private void addItem(){
-		String newID;
-		String newName;
-		double newPrice;
-		int newQuantity;
+		//int newID;
+		//String newName;
+		//double newPrice;
+		//int newQuantity;
 
-		input.nextLine();
+		//input.nextLine();
 
 		System.out.println("Product ID: ");
-		newID = input.nextLine();
+		int newID = input.nextInt();
+		input.nextLine();
 
 		System.out.println("Product Name: ");
-		newName = input.nextLine();
+		String newName = input.nextLine();
+		input.nextLine();
 
 		System.out.println("Product Price: ");
-		newPrice = input.nextDouble();
+		double newPrice = input.nextDouble();
+		input.nextLine();
 
 		System.out.println("Product Quantity: ");
-		newQuantity = input.nextInt();
+		int newQuantity = input.nextInt();
+		input.nextLine();
 
 		items[counter] = new Item(newID, newName, newPrice, newQuantity);
 
@@ -299,13 +296,13 @@ public class FinalProject{
 
 class Item {
 
-	private String id;
+	private int id;
 	private String name;
 	private double price;
 	private int quantity;
 
 	//add constructors
-	public Item(String id, String name, double price, int quantity){
+	public Item(int id, String name, double price, int quantity){
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -314,7 +311,7 @@ class Item {
 
 	//add get and set methods
 	//getters
-	public String getID(){
+	public int getID(){
 		return id;
 	}
 
@@ -331,7 +328,7 @@ class Item {
 	}
 
 	//setters
-	public void setID(String id){
+	public void setID(int id){
 		this.id = id;
 	}
 
