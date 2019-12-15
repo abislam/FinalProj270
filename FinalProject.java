@@ -96,14 +96,14 @@ public class FinalProject{
 		System.out.println("\t2) Search and update item");
 		System.out.println("\t3) Search and delete item");
 
-		int choice = input.nextInt()
+		int choice = input.nextInt();
 
 		while(choice != 1 && choice != 2 && choice != 3){
 			System.out.println("Invalid input. Please enter 1,2 or 3: ");
 			choice = input.nextInt();
 		}
 
-		itemID = 0;
+		int itemID = -1;
 
 		switch(choice){
 			case 1:
@@ -132,7 +132,7 @@ public class FinalProject{
 		System.out.println("\t1) Search item");
 		System.out.println("\t2) Place order(or purchase item)");
 
-		int choice = input.nextInt()
+		int choice = input.nextInt();
 
 		while(choice != 1 && choice != 2){
 			System.out.println("Invalid input. Please enter 1,2 or 3: ");
@@ -177,7 +177,7 @@ public class FinalProject{
 		String productID = input.nextLine();
 		int itemCounter = -1;
 		for(int i = 0; i < counter; i++){
-			if(id.equalsIgnoreCase(items[i].getID()) || id.equalsIgnoreCase(items[i].getName())){
+			if(productID.equalsIgnoreCase(items[i].getID()) || productID.equalsIgnoreCase(items[i].getName())){
 				itemCounter = i;
 			}
 		}
@@ -188,10 +188,10 @@ public class FinalProject{
 	private void deleteItem(int itemCounter){
 		if(counter==0){
 			System.out.println("Inventory is Empty");
-		}else{
-			Item[] temp = items;
 		}
-
+		
+		Item[] temp = items;
+		
 		if(itemCounter >= counter){
 			System.out.println("Item not found in inventory");
 		}else{
@@ -230,10 +230,10 @@ public class FinalProject{
 			System.out.println("New Product Quantity: ");
 			updatedQuantity = input.nextInt();
 
-			items[index].setID(updatedID);
-			items[index].setName(updatedName);
-			items[index].setPrice(updatedPrice);
-			items[index].setQuantity(updatedQuantity);
+			items[itemCounter].setID(updatedID);
+			items[itemCounter].setName(updatedName);
+			items[itemCounter].setPrice(updatedPrice);
+			items[itemCounter].setQuantity(updatedQuantity);
 
 			System.out.println("Item updated");
 		}
@@ -262,7 +262,7 @@ public class FinalProject{
 
 		items[counter] = new Item(newID, newName, newPrice, newQuantity);
 
-		counter++
+		counter++;
 
 		System.out.println("Item added");
 
@@ -271,11 +271,11 @@ public class FinalProject{
 	private void purchaseItem(int itemCounter){
 		int purchaseQuantity;
 		int itemQuantity;
-		int cost = 0;
+		double cost = 0;
 		if(itemCounter >= counter){
 			System.out.println("Item not found in inventory");
 		}else{
-			System.out.println("Specify quantity for purchase of " + items[itemCounter].getName() " :");
+			System.out.println("Specify quantity for purchase of " + items[itemCounter].getName() + " :");
 			purchaseQuantity = input.nextInt();
 
 			while(purchaseQuantity <= 0){
