@@ -82,13 +82,14 @@ public class FinalProject{
 		////display menu and ask for user selection (Validate)
 
 		System.out.println("Admin Menu \n");
-		System.out.println("\t1) Add new Item");
-		System.out.println("\t2) Search and update item");
-		System.out.println("\t3) Search and delete item");
+		System.out.println("\t1) Display all items");
+		System.out.println("\t2) Add new Item");
+		System.out.println("\t3) Search and update item");
+		System.out.println("\t4) Search and delete item");
 
 		int choice = input.nextInt();
 
-		while(choice != 1 && choice != 2 && choice != 3){
+		while(choice != 1 && choice != 2 && choice != 3 && choice != 4){
 			System.out.println("Invalid input. Please enter 1,2 or 3: ");
 			choice = input.nextInt();
 		}
@@ -97,17 +98,21 @@ public class FinalProject{
 
 		switch(choice){
 			case 1:
-				addItem();
+				displayAllItems();
 				break;
 
 			case 2:
+				addItem();
+				break;
+
+			case 3:
 				//System.out.println("Enter the Item ID: ");
 				//itemID = input.nextInt();
 				updateItem(searchForItem());
 				//System.out.println("Item updated");
 				break;
 
-			case 3:
+			case 4:
 				//System.out.println("Enter the Item ID: ");
 				//itemID = input.nextInt();
 				deleteItem(searchForItem());
@@ -175,6 +180,7 @@ public class FinalProject{
 			}
 		}
 
+		System.out.println("Item: " + items[itemCounter].getName());
 		return itemCounter;
 	}
 
