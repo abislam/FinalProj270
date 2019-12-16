@@ -42,8 +42,8 @@ public class FinalProject{
 
 		boolean looper = true;
 
-		String userName;
-		String userPassword;
+		String userName = "";
+		String userPassword = "";
 		String adminName = "admin";
 		String adminPassword = "admin123";
 
@@ -62,8 +62,18 @@ public class FinalProject{
 
 			switch(choice){
 				case 1:
+					input.nextLine();
+					System.out.println("Enter Admin Username: ");
+					userName = input.nextLine();
+					System.out.println("Enter Password for " + userName + ": ");
+					userPassword = input.nextLine();
 
-					adminMenu();
+					if(userName.equals(adminName) && userPassword.equals(adminPassword)){
+						adminMenu();
+					}else{
+						System.out.println("Username or Password is incorrect");
+					}
+					
 					break;
 
 				case 2:
@@ -141,8 +151,6 @@ public class FinalProject{
 				int itemCounter = searchForItem();
 				if(itemCounter == -1){
 					System.out.println("Item not found in inventory");
-				}else{
-					System.out.println("Your item: " + items[itemCounter].getName());
 				}
 				break;
 			case 2: 
@@ -173,7 +181,9 @@ public class FinalProject{
 		}
 		System.out.println("Enter your Product ID");
 		productID = input.nextInt();
+
 		int itemCounter = -1;
+
 		for(int i = 0; i < counter; i++){
 			if(productID == items[i].getID()){
 				itemCounter = i;
@@ -280,6 +290,9 @@ public class FinalProject{
 		int purchaseQuantity;
 		int itemQuantity;
 		double cost = 0;
+		double tax = 0.07;
+		double taxCost = 0;
+		double totalCost = 0;
 		if(itemCounter > counter){
 			System.out.println("Item not found in inventory");
 		}else{
@@ -296,7 +309,9 @@ public class FinalProject{
 			if(itemQuantity > purchaseQuantity && itemQuantity != 0){
 				items[itemCounter].setQuantity(itemQuantity - purchaseQuantity);
 				cost = purchaseQuantity * items[itemCounter].getPrice();
-				System.out.println("Your total cost for this transaction: " + cost);
+				taxCost = cost*tax;
+				totalCost = cost + taxCost;
+				System.out.println("Your total cost for this transaction after tax: " + totalCost);
 			}else{
 				System.out.println("Item not available or purchase quantity too high");
 			}
