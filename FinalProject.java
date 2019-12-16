@@ -101,17 +101,17 @@ public class FinalProject{
 				break;
 
 			case 2:
-				System.out.println("Enter the Item ID: ");
-				itemID = input.nextInt();
-				updateItem(itemID);
-				System.out.println("Item with Item ID (" + itemID + ") updated");
+				//System.out.println("Enter the Item ID: ");
+				//itemID = input.nextInt();
+				updateItem(searchForItem());
+				//System.out.println("Item updated");
 				break;
 
 			case 3:
-				System.out.println("Enter the Item ID: ");
-				itemID = input.nextInt();
-				deleteItem(itemID);
-				System.out.println("Item with Item ID (" + itemID + ") deleted");
+				//System.out.println("Enter the Item ID: ");
+				//itemID = input.nextInt();
+				deleteItem(searchForItem());
+				System.out.println("Item deleted");
 				break;
 		}
 	}
