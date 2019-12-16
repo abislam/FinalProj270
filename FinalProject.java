@@ -116,17 +116,12 @@ public class FinalProject{
 				break;
 
 			case 3:
-				//System.out.println("Enter the Item ID: ");
-				//itemID = input.nextInt();
 				updateItem(searchForItem());
-				//System.out.println("Item updated");
 				break;
 
 			case 4:
-				//System.out.println("Enter the Item ID: ");
-				//itemID = input.nextInt();
 				deleteItem(searchForItem());
-				System.out.println("Item deleted");
+				System.out.println("\nItem deleted\n");
 				break;
 		}
 	}
@@ -144,18 +139,16 @@ public class FinalProject{
 			choice = input.nextInt();
 		}
 
-		//int itemID = -1;
+		
 
 		switch(choice){
 			case 1: 
 				int itemCounter = searchForItem();
 				if(itemCounter == -1){
-					System.out.println("Item not found in inventory");
+					System.out.println("\nItem not found in inventory\n");
 				}
 				break;
 			case 2: 
-				//System.out.println("Enter Item ID to purchase item");
-				//itemCounter = input.nextInt();
 				purchaseItem(searchForItem());
 				break;
 		}
@@ -163,7 +156,7 @@ public class FinalProject{
 
 	private void displayAllItems(){
 		if(counter == 0){
-			System.out.println("Inventory is Empty");
+			System.out.println("\nInventory is Empty\n");
 		}else{
 			for(int i = 0; i < counter; i++){
 				System.out.println(items[i].getName());
@@ -175,7 +168,7 @@ public class FinalProject{
 		int productID;
 
 		if(counter==0){
-			System.out.println("Inventory is Empty");
+			System.out.println("\nInventory is Empty\n");
 		}else{
 			input.nextLine();
 		}
@@ -196,13 +189,13 @@ public class FinalProject{
 
 	private void deleteItem(int itemCounter){
 		if(counter==0){
-			System.out.println("Inventory is Empty");
+			System.out.println("\nInventory is Empty\n");
 		}
 		
 		Item[] temp = items;
 		
 		if(itemCounter >= counter){
-			System.out.println("Item not found in inventory");
+			System.out.println("\nItem not found in inventory\n");
 		}else{
 			for(int i = itemCounter + 1; i < temp.length; i++){
 				temp[i-1] = temp[i];
@@ -221,9 +214,9 @@ public class FinalProject{
 		int updatedQuantity;
 
 		if(counter==0){
-			System.out.println("Inventory is Empty");
+			System.out.println("\nInventory is Empty\n");
 		}else if(itemCounter > counter){
-			System.out.println("Item not found in inventory");
+			System.out.println("\nItem not found in inventory\n");
 		}else{
 			input.nextLine();
 
@@ -245,16 +238,12 @@ public class FinalProject{
 			items[itemCounter].setPrice(updatedPrice);
 			items[itemCounter].setQuantity(updatedQuantity);
 
-			System.out.println("Item updated");
+			System.out.println("\nItem updated\n");
 		}
 
 	}
 
 	private void addItem(){
-		//int newID;
-		//String newName;
-		//double newPrice;
-		//int newQuantity;
 
 		input.nextLine();
 
@@ -264,14 +253,10 @@ public class FinalProject{
 
 		System.out.println("Product ID: ");
 		int newID = input.nextInt();
-		//input.nextLine();
 
-
-		//input.nextLine();
 
 		System.out.println("Product Price: ");
 		double newPrice = input.nextDouble();
-		//input.nextLine();
 
 		System.out.println("Product Quantity: ");
 		int newQuantity = input.nextInt();
@@ -282,7 +267,7 @@ public class FinalProject{
 
 		counter++;
 
-		System.out.println("Item added");
+		System.out.println("\nItem added\n");
 
 	}
 
@@ -294,7 +279,7 @@ public class FinalProject{
 		double taxCost = 0;
 		double totalCost = 0;
 		if(itemCounter > counter){
-			System.out.println("Item not found in inventory");
+			System.out.println("\nItem not found in inventory\n");
 		}else{
 			System.out.println("Specify quantity for purchase of " + items[itemCounter].getName() + " :");
 			purchaseQuantity = input.nextInt();
@@ -311,9 +296,9 @@ public class FinalProject{
 				cost = purchaseQuantity * items[itemCounter].getPrice();
 				taxCost = cost*tax;
 				totalCost = cost + taxCost;
-				System.out.println("Your total cost for this transaction after tax: " + totalCost);
+				System.out.println("\nYour total cost for this transaction after tax: " + totalCost + "\n");
 			}else{
-				System.out.println("Item not available or purchase quantity too high");
+				System.out.println("\nItem not available or purchase quantity too high\n");
 			}
 		}
 
