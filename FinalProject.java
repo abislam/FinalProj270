@@ -143,7 +143,7 @@ public class FinalProject{
 			case 2: 
 				System.out.println("Enter Item ID to purchase item");
 				itemCounter = input.nextInt();
-				purchaseItem(itemCounter);
+				purchaseItem(searchForItem());
 				break;
 		}
 	}
@@ -239,23 +239,27 @@ public class FinalProject{
 		//double newPrice;
 		//int newQuantity;
 
-		//input.nextLine();
-
-		System.out.println("Product ID: ");
-		int newID = input.nextInt();
 		input.nextLine();
 
 		System.out.println("Product Name: ");
 		String newName = input.nextLine();
 		input.nextLine();
 
+		System.out.println("Product ID: ");
+		int newID = input.nextInt();
+		//input.nextLine();
+
+
+		//input.nextLine();
+
 		System.out.println("Product Price: ");
 		double newPrice = input.nextDouble();
-		input.nextLine();
+		//input.nextLine();
 
 		System.out.println("Product Quantity: ");
 		int newQuantity = input.nextInt();
-		input.nextLine();
+
+
 
 		items[counter] = new Item(newID, newName, newPrice, newQuantity);
 
@@ -269,7 +273,7 @@ public class FinalProject{
 		int purchaseQuantity;
 		int itemQuantity;
 		double cost = 0;
-		if(itemCounter >= counter){
+		if(itemCounter > counter){
 			System.out.println("Item not found in inventory");
 		}else{
 			System.out.println("Specify quantity for purchase of " + items[itemCounter].getName() + " :");
