@@ -141,8 +141,8 @@ public class FinalProject{
 				}
 				break;
 			case 2: 
-				System.out.println("Enter Item ID to purchase item");
-				itemCounter = input.nextInt();
+				//System.out.println("Enter Item ID to purchase item");
+				//itemCounter = input.nextInt();
 				purchaseItem(searchForItem());
 				break;
 		}
@@ -291,7 +291,7 @@ public class FinalProject{
 				cost = purchaseQuantity * items[itemCounter].getPrice();
 				System.out.println("Your total cost for this transaction: " + cost);
 			}else{
-				System.out.println("Item not available");
+				System.out.println("Item not available or purchase quantity too high");
 			}
 		}
 
