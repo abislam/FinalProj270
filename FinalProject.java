@@ -213,6 +213,7 @@ public class FinalProject{
 
 			System.out.println("New Product ID: ");
 			updatedID = input.nextInt();
+			input.nextLine();
 
 			System.out.println("New Product Name: ");
 			updatedName = input.nextLine();
