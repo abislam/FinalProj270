@@ -29,11 +29,24 @@ import java.util.Scanner;
 public class FinalProject{
 
 	private Scanner input = new Scanner(System.in);
-	private Item[] items = new Item[100];
-	private int counter = 0;
+	private static Item[] items = new Item[100];
+	private int counter = 9;
 
 	public static void main(String[] args){
+
+
 		FinalProject fp = new FinalProject();
+		//public Item(int id, String name, double price, int quantity)
+		items[0] = new Item(1, "Car", 23, 23);
+		items[1] = new Item(2, "Toy", 11, 11);
+		items[2] = new Item(3, "Ball", 12, 12);
+		items[3] = new Item(4, "Bat", 14, 13);
+		items[4] = new Item(5, "Camera", 16, 16);
+		items[5] = new Item(6, "Monitor", 17, 17);
+		items[6] = new Item(7, "Keyboard", 18, 18);
+		items[7] = new Item(8, "Mouse", 19, 19);
+		items[8] = new Item(9, "Headphone", 20, 20);
+		items[9] = new Item(10, "Mic", 21, 21);
 		fp.mainMenu();
 	}
 
@@ -159,7 +172,7 @@ public class FinalProject{
 			System.out.println("\nInventory is Empty\n");
 		}else{
 			for(int i = 0; i < counter; i++){
-				System.out.println(items[i].getName());
+				System.out.println("ID: " + items[i].getID() + "\t" + "Name: " + items[i].getName()  + "\t" + "Price: " + items[i].getPrice()  + "\t" + "Quantity: " + items[i].getQuantity());
 			}
 		}
 	}
@@ -183,7 +196,7 @@ public class FinalProject{
 			}
 		}
 
-		System.out.println("Item: " + items[itemCounter].getName());
+		System.out.println("ID: " + items[itemCounter].getID() + "\t" + "Name: " + items[itemCounter].getName()  + "\t" + "Price: " + items[itemCounter].getPrice()  + "\t" + "Quantity: " + items[itemCounter].getQuantity());
 		return itemCounter;
 	}
 
@@ -291,7 +304,7 @@ public class FinalProject{
 
 			itemQuantity = items[itemCounter].getQuantity();
 
-			if(itemQuantity > purchaseQuantity && itemQuantity != 0){
+			if(itemQuantity >= purchaseQuantity){
 				items[itemCounter].setQuantity(itemQuantity - purchaseQuantity);
 				cost = purchaseQuantity * items[itemCounter].getPrice();
 				taxCost = cost*tax;
